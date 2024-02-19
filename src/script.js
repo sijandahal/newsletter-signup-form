@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const form__subscribe = document.querySelector(".form__subscribe");
   const errorMessage = document.querySelector(".errorMessage");
   const email = document.querySelector(".email");
+  const overlayDiv = document.querySelector(".overlay");
+  const overlayEmailValue = document.querySelector(".emailValueSpan");
+  const DismissButton = document.querySelector(".overlay__button");
   const overlay = () => {
-    const overLayWrapper = document.createElement("div");
-    overLayWrapper.classList.add("overlay__wrapper");
-    document.body.appendChild(overLayWrapper);
+    overlayEmailValue.innerHTML = email.value;
+    overlayDiv.style.display = "flex";
   };
   const validateEmail = (email) => {
     return email.match(
@@ -32,8 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailValue = email.value;
     if (validateEmail(emailValue)) {
       overlay();
+      email.value = "";
+      errorMessage.textContent = "";
+    } else {
+      errorMessage.textContent = "Valid Email Required";
+      errorMessage.style.color = "red";
     }
   });
 
   email.addEventListener("input", validate);
+  DismissButton.addEventListener("click", () => {
+    overlayDiv.style.display = "none";
+  });
 });

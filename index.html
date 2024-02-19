@@ -15,7 +15,7 @@
     <title>
       Frontend Mentor | Newsletter sign-up form with success message
     </title>
-    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./src/output.css" />
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
@@ -28,49 +28,92 @@
       }
     </style>
   </head>
-  <body class="bg-CharcoalGrey flex items-center justify-center h-screen">
+  <body class=" bg-White md:bg-CharcoalGrey flex md:items-center justify-center h-screen">
     <!-- Sign-up form start -->
-    <main >
-      <div class="wrapper bg-White pl-16 pt-6 pb-6 pr-6 rounded-3xl grid grid-cols-2 items-center gap-16 max-w-[960px]">
-        <div class="left__details">
-          <h1 class="text-6xl font-bold color-DarkSlateGrey mb-6">Stay updated!</h1>
-          <p class="color-DarkSlateGrey mb-6">Join 60,000+ product managers receiving monthly updates on:</p>
-          <ul class="list">
-            <li class="list__item">Product discovery and building what matters</li>
-            <li class="list__item">Measuring to ensure updates are a  Email address email@company.com Subscribe to monthly
-              newsletter success And much more!</li>
-            <li class="list__item">
-              Email address email@company.com Subscribe to monthly newsletter
+    <main>
+      <div
+        class="wrapper bg-White p-0 md:pl-16 md:p-6 md:rounded-[32px] flex items-center gap-8 md:gap-16 max-w-[57.875rem] m-0 md:mx-4 flex-col-reverse md:flex-row pb-10 rounded-none"
+      >
+        <div class="left__details md-basis-[45%] md:p-0 px-6">
+          <h1 class=" text-4xl md:text-[3.575rem] leading-tight font-bold text-DarkSlateGrey mb-5">
+            Stay updated!
+          </h1>
+          <p class="color-DarkSlateGrey mb-6">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+          
+          <ul class="list mb-10" >
+            <li class="list__item mb-3 pl-7 relative">
+              Product discovery and building what matters
+            </li>
+            <li class="list__item mb-3 pl-7 relative">
+              Measuring to ensure updates are a success
+            </li>
+            <li class="list__item mb-3 last:pb-0 pl-7 relative">
+              And much more!
             </li>
           </ul>
           <form action="" class="form__subscribe">
-            <label for = "email">  Emailaddress </label> <span class="errorMessage"> </span>      
-                <input type="text" id="email" class="email block border">
-                <input type="submit" class="submitButton">
+            <div class="form__label-wrapper flex justify-between mb-2">
+              <label for="email" class="font-bold color-DarkSlateGrey text-xs">
+                Email address
+              </label>
+              <span class="errorMessage font-bold color-DarkSlateGrey text-xs" aria-live="polite">
+              </span>
+            </div>
+            <input
+              type="text"
+              id="email"
+              class="email block border py-[0.94rem] px-3 w-full outline-none border-Grey rounded-lg focus:border-DarkSlateGrey"
+              placeholder="email@company.com"  aria-describedby="username-error"
+            />
+            <input
+              type="submit"
+              value="Subscribe to monthly newsletter"
+              class="submitButton block rounded-lg border font-bold py-[0.94rem] px-3 w-full outline-none mt-6 bg-DarkSlateGrey text-White text-bold cursor-pointer transition-colors hover:bg-Tomato hover:shadow-Tomato hover:border-Tomato hover:transition-shadow hover:shadow-2xl"
+            />
           </form>
         </div>
-        <div class="image__container">
-          <img src="./assets/images/illustration-sign-up-desktop.svg" alt="">
+        <div class="image__container md:w-auto w-full ">
+          <img src="./assets/images/illustration-sign-up-desktop.svg" alt="illustration-sign-up-desktop" class="hidden md:block" />
+          <img src="./assets/images/illustration-sign-up-mobile.svg" alt="illustration-sign-up-mobile" class="block md:hidden w-full"/>
         </div>
       </div>
-      <div class="attribution">
+
+      <!-- <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
         >. Coded by <a href="#">Your Name Here</a>.
+      </div> -->
+
+      <div class="overlay bg-White  md:bg-DarkSlateGrey absolute inset-0 h-screen  align-middle items-center justify-center hidden">
+        <div class="overlay__content wrapper bg-White p-6 md:p-16 md:pt-11 rounded-3xl w-full max-w-[500px] flex flex-col h-full md:h-auto justify-around md:block">
+        <div class="top__details">
+          <p class = "inline-block mb-8">
+        <img src="./assets/images/icon-success.svg" alt="Success-icon">
+        </p>
+        <h2 class = "overlay__title text-4xl md:text-[3.5rem] font-bold leading-[53px] text-DarkSlateGrey mb-8"> Thanks for subscribing! </h2>
+        <p class = "overlay__text"> A confirmation email has been sent to <span class = "font-bold text-DarkSlateGrey emailValueSpan"> $</span>
+         Please open it and click the button inside to confirm
+        your subscription. </p>
       </div>
+        <button class = "overlay__button font-bold m-t-auto bg-DarkSlateGrey block rounded-lg border py-[0.94rem] px-3 w-full outline-none mt-11 hover:bg-Tomato  hover:shadow-Tomato hover:border-Tomato hover:transition-shadow hover:shadow-2xl text-White text-bold cursor-pointer transition-colors " type = "submit">Dismiss message</button>
+         </div>
+        </div>
+      
     </main>
 
     <!-- Sign-up form end -->
 
     <!-- Success message start -->
-<!-- 
+    <!-- 
     Thanks for subscribing! A confirmation email has been sent to
     ash@loremcompany.com. Please open it and click the button inside to confirm
     your subscription. Dismiss message -->
 
     <!-- Success message end -->
-
+    <button id="endFocus" style="position: fixed; left: -9999px;">End Focus</button>
 
     <script src="./src/script.js"></script>
   </body>
